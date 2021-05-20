@@ -1,7 +1,7 @@
 #ifndef __GLCD_H__
 #define __GLCD_H__
 
-#include "../Utility/Utility.h"
+#include "Utility.h"
 
 extern uint16_t ASCII_Table[];
 
@@ -39,8 +39,8 @@ void GLCD_Clear          (uint16_t color);
 void GLCD_SetTextColor   (uint16_t color);
 void GLCD_SetBackColor   (uint16_t color);
 void GLCD_DisplayChar    (uint16_t x, uint16_t y, uint8_t ascii);
-void GLCD_DisplayStringLn(uint16_t line, char *s);
+void GLCD_DisplayStringLn(uint16_t line, char* str);
 void GLCD_ClearLn        (uint16_t line);
-void GLCD_PutBitmap      (uint16_t x, uint16_t y, uint16_t w, uint16_t h, unsigned char *bitmap);
+void GLCD_PutBitmap      (uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t* bitmap);
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef __Keypad_H__
 #define __Keypad_H__
 
-#include "../Utility/Utility.h"
+#include "Utility.h"
 
 #define KEYPAD_TYPE_A 1
 #define KEYPAD_TYPE_B 2
@@ -18,8 +18,8 @@
 #define KEYPAD_RIGHT (1 << 6)
 #define KEYPAD_DOWN  (1 << 9)
 
-void Keypad_Init(uint32_t keypadType);
-uint32_t Keypad_ScanColumn(void); // 4bit column result
-uint32_t Keypad_Scan(void);       // 16bit full result
+void Keypad_Init(int keypadType);
+int Keypad_ScanColumn(void); // 4bit column result
+int Keypad_Scan(void);       // 16bit full result
 
 #endif

@@ -485,97 +485,87 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Main</GroupName>
+          <GroupName>Header</GroupName>
           <Files>
             <File>
-              <FileName>Main.c</FileName>
+              <FileName>Font.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Main.c</FilePath>
+              <FilePath>.\Sources\Font.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Timer</GroupName>
-          <Files>
-            <File>
-              <FileName>Timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Sources\Timer\Timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sources\Timer\Timer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Tone</GroupName>
-          <Files>
-            <File>
-              <FileName>Tone.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Sources\Tone\Tone.c</FilePath>
-            </File>
-            <File>
-              <FileName>Tone.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sources\Tone\Tone.h</FilePath>
-            </File>
-            <File>
-              <FileName>Note.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sources\Tone\Note.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Keypad</GroupName>
-          <Files>
-            <File>
-              <FileName>Keypad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Sources\Keypad\Keypad.c</FilePath>
-            </File>
-            <File>
-              <FileName>Keypad.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sources\Keypad\Keypad.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>LCD</GroupName>
-          <Files>
             <File>
               <FileName>GLCD.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\LCD\GLCD.c</FilePath>
+              <FilePath>.\Sources\GLCD.c</FilePath>
             </File>
             <File>
               <FileName>GLCD.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\LCD\GLCD.h</FilePath>
+              <FilePath>.\Sources\GLCD.h</FilePath>
             </File>
             <File>
-              <FileName>Font.c</FileName>
+              <FileName>Keypad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\LCD\Font.c</FilePath>
+              <FilePath>.\Sources\Keypad.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Utility</GroupName>
-          <Files>
+            <File>
+              <FileName>Keypad.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Keypad.h</FilePath>
+            </File>
+            <File>
+              <FileName>Note.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Note.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Tone.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\Tone.c</FilePath>
+            </File>
+            <File>
+              <FileName>Tone.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Tone.h</FilePath>
+            </File>
             <File>
               <FileName>Utility.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Utility\Utility.c</FilePath>
+              <FilePath>.\Sources\Utility.c</FilePath>
             </File>
             <File>
               <FileName>Utility.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Utility\Utility.h</FilePath>
+              <FilePath>.\Sources\Utility.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Source</GroupName>
+          <Files>
+            <File>
+              <FileName>Game.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\Game.c</FilePath>
+            </File>
+            <File>
+              <FileName>Game.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Game.h</FilePath>
+            </File>
+            <File>
+              <FileName>Main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\Main.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,6 +1,8 @@
 #ifndef _Note_h_
 #define _Note_h_
 
+// type: uint16_t
+
 #define NOTE_B0  31
 #define NOTE_C1  33
 #define NOTE_CS1 35

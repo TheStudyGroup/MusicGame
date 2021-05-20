@@ -1,10 +1,7 @@
 #ifndef _Tone_h_
 #define _Tone_h_
 
-#include "LPC1768_utility.h"
-#include "lpc17xx_dac.h"
-#include "lpc17xx_gpdma.h"
-
+#include "Utility.h"
 #include "Note.h"
 
 void Tone_Init(void);

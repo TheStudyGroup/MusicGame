@@ -258,17 +258,15 @@ void GLCD_ClearLn(uint16_t line) {
     GLCD_DisplayStringLn(line, "                    ");
 }
 
-void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t w, uint16_t h, unsigned char *bitmap) {
-    unsigned int   i;
-    unsigned int   len = w*h;
-    unsigned short *bitmap_ptr = (unsigned short *)bitmap;
 
-    GLCD_SetX(x, w);
-    GLCD_SetY(y, h);
+void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t* bitmap) {
+    uint32_t i, len = width * height;
+    GLCD_SetX(x, width);
+    GLCD_SetY(y, height);
 
     GLCD_WriteCmd(0x2C);
     for (i = 0; i < len; i++)
     {
-        GLCD_WritePixel(*bitmap_ptr++);
+        GLCD_WritePixel(*bitmap++);
     }
 }

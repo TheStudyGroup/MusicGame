@@ -94,7 +94,7 @@ static void Keypad_UseRow4() {
     LPC_GPIO2->FIOPIN &= ~(1 << 11);
 }
 
-void Keypad_Init(uint32_t keypadType) {
+void Keypad_Init(int keypadType) {
     EXT_IO_Init();
     if (keypadType == KEYPAD_TYPE_A) // see arm_cortexm3_keypad_v11.pdf
         EXT_IO_A_CS();
@@ -104,8 +104,8 @@ void Keypad_Init(uint32_t keypadType) {
         EXT_IO_C_CS();
 }
 
-uint32_t Keypad_ScanColumn() {
-    uint32_t result = 0;
+int Keypad_ScanColumn() {
+    int result = 0;
     LPC_GPIO1->FIOPIN &= ~(1 << 21); // Keypad Input CS On
 
     if ((~LPC_GPIO0->FIOPIN >> 26) & 0x01)
@@ -121,8 +121,8 @@ uint32_t Keypad_ScanColumn() {
     return result;
 }
 
-uint32_t Keypad_Scan() {
-    uint32_t result = 0;
+int Keypad_Scan() {
+    int result = 0;
 
     Keypad_UseRow1();
     result |= Keypad_ScanColumn();
