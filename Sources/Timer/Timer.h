@@ -3,9 +3,7 @@
 
 #include "../Utility/Utility.h"
 
-void DelayMs(uint32_t millis);
-
-void Timer0_Init(void);
+void Timer0_Init(uint32_t interval);
 void Timer0_Start(void);
 void Timer0_Stop(void);
 
