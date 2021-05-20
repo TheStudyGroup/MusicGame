@@ -12,6 +12,7 @@
 //  8     9(D)  10    11
 // 12    13     14    15
 
+#define KEYPAD_NOKEY 0
 #define KEYPAD_UP    (1 << 1)
 #define KEYPAD_LEFT  (1 << 4)
 #define KEYPAD_MID   (1 << 5)
