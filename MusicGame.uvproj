@@ -482,11 +482,6 @@
               <FileType>1</FileType>
               <FilePath>.\Libraries\Drivers\source\lpc17xx_uart.c</FilePath>
             </File>
-            <File>
-              <FileName>LPC1768_utility.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\LPC1768_utility.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -551,6 +546,38 @@
         </Group>
         <Group>
           <GroupName>LCD</GroupName>
+          <Files>
+            <File>
+              <FileName>GLCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\LCD\GLCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>GLCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\LCD\GLCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>Font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\LCD\Font.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Utility</GroupName>
+          <Files>
+            <File>
+              <FileName>Utility.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sources\Utility\Utility.c</FilePath>
+            </File>
+            <File>
+              <FileName>Utility.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sources\Utility\Utility.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
