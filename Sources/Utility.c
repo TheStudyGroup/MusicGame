@@ -2,7 +2,7 @@
 
 void DelayMs(uint32_t millis) {
     volatile uint32_t i;
-    millis = SystemCoreClock / 4000 * millis; // SystemCoreClock/4 == 1sec
+    millis = SystemCoreClock / 1000 * millis / 8; // SystemCoreClock/4 == 1sec
     for(i = 0; i < millis; i++); // 4 cycles
 }
 

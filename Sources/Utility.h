@@ -1,6 +1,7 @@
 #ifndef _Utility_H_
 #define _Utility_H_
 
+#include <stdint.h>
 #include "LPC17xx.h"
 #include "lpc_types.h"
 
@@ -10,7 +11,18 @@
 #include "lpc17xx_timer.h"
 #include "lpc17xx_dac.h"
 #include "lpc17xx_gpdma.h"
+#include "LPC1768_fnd.h"
 #include "lpc17xx_uart.h"
+
+#ifndef bool
+typedef uint8_t bool;
+#endif
+#ifndef true
+#define true 1
+#endif
+#ifndef false
+#define false 0
+#endif
 
 #define OUTPUT 1
 #define INPUT  0
