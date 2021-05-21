@@ -4,12 +4,10 @@
 #include "Utility.h"
 #include "Note.h"
 
-void Tone_Init(void);
-void Tone_PlaySineWave(uint32_t frequency);
+void Tone_Init(uint8_t volume);
+void Tone_Play(uint32_t frequency);
 void Tone_Stop(void);
-Bool Tone_IsPlaying(void);
-
-void __Tone_GenerateSineWave(void);
-void __Tone_DmaInit(void);
+bool Tone_IsPlaying(void);
+void Tone_Test(void);
 
 #endif
