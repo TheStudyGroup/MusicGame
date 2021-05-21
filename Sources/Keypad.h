@@ -3,9 +3,11 @@
 
 #include "Utility.h"
 
-#define KEYPAD_TYPE_A 1
-#define KEYPAD_TYPE_B 2
-#define KEYPAD_TYPE_C 3
+typedef enum {
+    KEYPAD_TYPE_A,
+    KEYPAD_TYPE_B,
+    KEYPAD_TYPE_C,
+} KeypadType;
 
 //  0     1(U)  2      3
 //  4(L)  5(M)   6(R)  7
@@ -19,8 +21,7 @@
 #define KEYPAD_RIGHT (1 << 6)
 #define KEYPAD_DOWN  (1 << 9)
 
-void Keypad_Init(int keypadType);
-int Keypad_ScanColumn(void); // 4bit column result
+void Keypad_Init(KeypadType type);
 int Keypad_Scan(void);       // 16bit full result
 
 #endif
