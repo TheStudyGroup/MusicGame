@@ -7,6 +7,15 @@
 #include "Utility.h"
 #include "../Resource/Resource.h"
 
+
+#define GLCD_WIDTH       320
+#define GLCD_HEIGHT      240
+#define GLCD_LINE_WIDTH   16
+#define GLCD_LINE_HEIGHT  24
+
+#define BPP         16                  /* Bits per pixel                     */
+#define BYPP        ((BPP+7)/8)         /* Bytes per pixel                    */
+
 #define Black           0x0000  /*   0,   0,   0 */
 #define Navy            0x000F  /*   0,   0, 128 */
 #define DarkGreen       0x03E0  /*   0, 128,   0 */
@@ -36,14 +45,18 @@
 #define Line9              216
 
 void GLCD_Init           (void);
-void GLCD_PutPixel       (uint16_t x, uint16_t y);
-void GLCD_Clear          (uint16_t color);
+
+void GLCD_DrawPixel (uint16_t x, uint16_t y);
+void GLCD_DrawBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint16_t* bitmap);
+void GLCD_Clear     (uint16_t color);
+void GLCD_ClearRect (uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color);
+void GLCD_ClearLine (uint16_t line);
+
 void GLCD_SetTextColor   (uint16_t color);
 void GLCD_SetBackColor   (uint16_t color);
+
 void GLCD_DisplayChar    (uint16_t x, uint16_t y, uint8_t ascii);
 void GLCD_DisplayStringLn(uint16_t line, char* str);
-void GLCD_ClearLn        (uint16_t line);
-void GLCD_PutBitmap      (uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* bitmap);
 void GLCD_Printf         (uint16_t line, char* format, ...);
 
 #endif

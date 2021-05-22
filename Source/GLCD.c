@@ -2,11 +2,6 @@
 
 #define DELAY_2N    18
 
-#define GLCD_WIDTH  320
-#define GLCD_HEIGHT 240
-#define BPP         16                  /* Bits per pixel                     */
-#define BYPP        ((BPP+7)/8)         /* Bytes per pixel                    */
-
 #define SSP_DATA    (0x100)             /* RS bit 1 within start byte         */
 #define SSP_INDEX   (0x00)              /* RS bit 0 within start byte         */
 
@@ -178,46 +173,69 @@ void GLCD_Init(void) {
 
     GLCD_WriteCmd(0x11); //Exit Sleep
 
-     delay(12);
+    delay(12);
     
     GLCD_WriteCmd(0x29); //Display on
 
     LPC_GPIO4->FIOPIN |=  (1 << 28);    /* Turn backlight on */
 }
 
+/**********************************************************************/
 
-static void GLCD_SetX(uint16_t x, uint16_t width) {
+static __inline void GLCD_SetX(uint16_t x, uint16_t width) {
     GLCD_WriteCmd(0x2A);
     GLCD_WriteData((x>>8) & 0xFF);
     GLCD_WriteData(x & 0xFF);
     GLCD_WriteData(((x+width-1)>>8) & 0xFF);
     GLCD_WriteData((x+width-1) & 0xFF);
 }
-static void GLCD_SetY(uint16_t y, uint16_t height) {
+static __inline void GLCD_SetY(uint16_t y, uint16_t height) {
     GLCD_WriteCmd(0x2B);
     GLCD_WriteData((y>>8) & 0xFF);
     GLCD_WriteData(y & 0xFF);
     GLCD_WriteData(((y+height-1)>>8) & 0xFF);
     GLCD_WriteData((y+height-1) & 0xFF);
 }
+static __inline void GLCD_SetRect(uint16_t x, uint16_t y, uint16_t width, uint16_t height) {
+    GLCD_SetX(x, width);
+    GLCD_SetY(y, height);
+    GLCD_WriteCmd(0x2C); // RAM Write
+}
 
+/**********************************************************************/
 
-void GLCD_PutPixel(uint16_t x, uint16_t y) {
-    GLCD_SetX(x, 1);
-    GLCD_SetY(y, 1);
-    GLCD_WriteCmd(0x2C);
+void GLCD_DrawPixel(uint16_t x, uint16_t y) {
+    GLCD_SetRect(x, y, 1, 1);
     GLCD_WritePixel(TextColor);
 }
+
+void GLCD_DrawBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint16_t* bitmap) {
+    uint32_t i, length = width * height;
+    GLCD_SetRect(x, y, width, height);
+    for (i = 0; i < length; i++) {
+        GLCD_WritePixel(*bitmap++);
+    }
+}
+
+/**********************************************************************/
+
 void GLCD_Clear(uint16_t color) {
-    uint32_t i;
-    GLCD_SetX(0, GLCD_WIDTH);
-    GLCD_SetY(0, GLCD_HEIGHT);
-    GLCD_WriteCmd(0x2C); // RAM Write
-    for(i = 0; i < GLCD_WIDTH * GLCD_HEIGHT; i++) {
+    GLCD_ClearRect(0, 0, GLCD_WIDTH, GLCD_HEIGHT, color);
+}
+
+void GLCD_ClearRect(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t color) {
+    uint32_t i, length = width * height;
+    GLCD_SetRect(x, y, width, height);
+    for(i = 0; i < length; i++) {
         GLCD_WritePixel(color);
     }
 }
 
+void GLCD_ClearLine(uint16_t line) {
+    GLCD_ClearRect(0, line, GLCD_WIDTH, line + GLCD_LINE_HEIGHT, TextColor);
+
+}
+/**********************************************************************/
 
 void GLCD_SetTextColor(uint16_t color) {
     TextColor = color;
@@ -225,6 +243,9 @@ void GLCD_SetTextColor(uint16_t color) {
 void GLCD_SetBackColor(uint16_t color) {
     BackColor = color;
 }
+
+/**********************************************************************/
+
 static void GLCD_DrawChar(uint16_t x, uint16_t y, const uint16_t* c) {
     uint32_t index = 0, i = 0;
     GLCD_SetX(x, 16);
@@ -256,9 +277,7 @@ void GLCD_DisplayStringLn(uint16_t line, char* str) {
         i++;
     }
 }
-void GLCD_ClearLn(uint16_t line) {
-    GLCD_DisplayStringLn(line, "                    ");
-}
+
 
 void GLCD_Printf(uint16_t line, char* format, ...) {
     va_list argList;
@@ -269,12 +288,5 @@ void GLCD_Printf(uint16_t line, char* format, ...) {
     va_end(argList);
 }
 
-void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint16_t* bitmap) {
-    uint32_t i, length = width * height;
-    GLCD_SetX(x, width); // SetRect
-    GLCD_SetY(y, height);
-    GLCD_WriteCmd(0x2C);
-    for (i = 0; i < length; i++) {
-        GLCD_WritePixel(*bitmap++);
-    }
-}
+
+
