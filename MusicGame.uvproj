@@ -46,14 +46,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Objects\</OutputDirectory>
+          <OutputDirectory>.\Object\</OutputDirectory>
           <OutputName>MusicGame</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Listings\</ListingPath>
+          <ListingPath>.\Listing\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -352,7 +352,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -364,7 +364,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
@@ -378,7 +378,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Libraries\Core\Device\NXP\LPC17xx\Include;.\Libraries\Drivers\include</IncludePath>
+              <IncludePath>.\Library\Core\Device\NXP\LPC17xx\Include;.\Library\Drivers\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -425,62 +425,62 @@
             <File>
               <FileName>startup_LPC17xx.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\Libraries\startup_LPC17xx.s</FilePath>
+              <FilePath>.\Library\startup_LPC17xx.s</FilePath>
             </File>
             <File>
               <FileName>system_LPC17xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\system_LPC17xx.c</FilePath>
+              <FilePath>.\Library\system_LPC17xx.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>Drivers</GroupName>
+          <GroupName>Driver</GroupName>
           <Files>
             <File>
               <FileName>debug_frmwrk.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\debug_frmwrk.c</FilePath>
+              <FilePath>.\Library\Drivers\source\debug_frmwrk.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_clkpwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_clkpwr.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_clkpwr.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_dac.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_dac.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_gpdma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_gpdma.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_gpdma.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_gpio.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_gpio.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_libcfg_default.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_libcfg_default.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_libcfg_default.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_pinsel.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_pinsel.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_pinsel.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_timer.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_timer.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Libraries\Drivers\source\lpc17xx_uart.c</FilePath>
+              <FilePath>.\Library\Drivers\source\lpc17xx_uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -488,64 +488,54 @@
           <GroupName>Header</GroupName>
           <Files>
             <File>
-              <FileName>Font.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Sources\Font.c</FilePath>
-            </File>
-            <File>
               <FileName>GLCD.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\GLCD.c</FilePath>
+              <FilePath>.\Source\GLCD.c</FilePath>
             </File>
             <File>
               <FileName>GLCD.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\GLCD.h</FilePath>
+              <FilePath>.\Source\GLCD.h</FilePath>
             </File>
             <File>
               <FileName>Keypad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Keypad.c</FilePath>
+              <FilePath>.\Source\Keypad.c</FilePath>
             </File>
             <File>
               <FileName>Keypad.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Keypad.h</FilePath>
-            </File>
-            <File>
-              <FileName>Note.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sources\Note.h</FilePath>
+              <FilePath>.\Source\Keypad.h</FilePath>
             </File>
             <File>
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Timer.c</FilePath>
+              <FilePath>.\Source\Timer.c</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Timer.h</FilePath>
+              <FilePath>.\Source\Timer.h</FilePath>
             </File>
             <File>
               <FileName>Tone.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Tone.c</FilePath>
+              <FilePath>.\Source\Tone.c</FilePath>
             </File>
             <File>
               <FileName>Tone.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Tone.h</FilePath>
+              <FilePath>.\Source\Tone.h</FilePath>
             </File>
             <File>
               <FileName>Utility.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Utility.c</FilePath>
+              <FilePath>.\Source\Utility.c</FilePath>
             </File>
             <File>
               <FileName>Utility.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Utility.h</FilePath>
+              <FilePath>.\Source\Utility.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -555,17 +545,42 @@
             <File>
               <FileName>Game.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Game.c</FilePath>
+              <FilePath>.\Source\Game.c</FilePath>
             </File>
             <File>
               <FileName>Game.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sources\Game.h</FilePath>
+              <FilePath>.\Source\Game.h</FilePath>
             </File>
             <File>
               <FileName>Main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Sources\Main.c</FilePath>
+              <FilePath>.\Source\Main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Resource</GroupName>
+          <Files>
+            <File>
+              <FileName>Resource.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Resource\Resource.h</FilePath>
+            </File>
+            <File>
+              <FileName>Font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Resource\Font.c</FilePath>
+            </File>
+            <File>
+              <FileName>Note.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Resource\Note.h</FilePath>
+            </File>
+            <File>
+              <FileName>Image.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Resource\Image.c</FilePath>
             </File>
           </Files>
         </Group>
