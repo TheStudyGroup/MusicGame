@@ -1,7 +1,7 @@
-#include <stdint.h>
+#include "Resource.h"
 
 /* ASCII Table: each character is 16 column (16dots large) and 24 raw (24 dots high) */
-uint16_t ASCII_Table[] = {
+const uint16_t ASCII_Table[] = {
   /* Space ' ' */
   0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
   0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
