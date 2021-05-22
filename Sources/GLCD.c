@@ -209,7 +209,7 @@ void GLCD_PutPixel(uint16_t x, uint16_t y) {
     GLCD_WritePixel(TextColor);
 }
 void GLCD_Clear(uint16_t color) {
-    uint16_t i;
+    uint32_t i;
     GLCD_SetX(0, GLCD_WIDTH);
     GLCD_SetY(0, GLCD_HEIGHT);
     GLCD_WriteCmd(0x2C); // RAM Write
@@ -225,8 +225,8 @@ void GLCD_SetTextColor(uint16_t color) {
 void GLCD_SetBackColor(uint16_t color) {
     BackColor = color;
 }
-static void GLCD_DrawChar(uint16_t x, uint16_t y, uint16_t* c) {
-    uint16_t index = 0, i = 0;
+static void GLCD_DrawChar(uint16_t x, uint16_t y, const uint16_t* c) {
+    uint32_t index = 0, i = 0;
     GLCD_SetX(x, 16);
     GLCD_SetY(y, 24);
     GLCD_WriteCmd(0x2C);
@@ -240,12 +240,14 @@ static void GLCD_DrawChar(uint16_t x, uint16_t y, uint16_t* c) {
         }
     }
 }
+
+
 void GLCD_DisplayChar(uint16_t x, uint16_t y, uint8_t ascii) {
     ascii -= 32;
     GLCD_DrawChar(x, y, &ASCII_Table[ascii * 24]);
 }
 void GLCD_DisplayStringLn(uint16_t line, char* str) {
-    uint16_t i = 0;
+    uint32_t i = 0;
     uint16_t refcolumn = 0;
     while ((*str != 0) & (i < 20)) {
         GLCD_DisplayChar(refcolumn, line, *str);
@@ -259,14 +261,12 @@ void GLCD_ClearLn(uint16_t line) {
 }
 
 
-void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t* bitmap) {
-    uint32_t i, len = width * height;
-    GLCD_SetX(x, width);
+void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint16_t* bitmap) {
+    uint32_t i, length = width * height;
+    GLCD_SetX(x, width); // SetRect
     GLCD_SetY(y, height);
-
     GLCD_WriteCmd(0x2C);
-    for (i = 0; i < len; i++)
-    {
+    for (i = 0; i < length; i++) {
         GLCD_WritePixel(*bitmap++);
     }
 }
