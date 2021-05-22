@@ -36,9 +36,9 @@ static void Tone_DmaInit(void) {
     GPDMA_Setup(&gpdmaConfig); // Setup channel with given parameter
 }
 
-static void Tone_GenerateSineWave(void) {
+static void Tone_GenerateSineWave(float volume) {
     uint32_t i;
-    float baseLevel = 512.0f * (float)Tone_Volume / 100;
+    float baseLevel = 256.0f * (float)volume / 100.0f;
     for (i = 0; i < TONE_SAMPLE_COUNT; i++) {
         dacSamples[i] = baseLevel + baseLevel * sinf((float)i * (2.0f * M_PI / TONE_SAMPLE_COUNT));
         dacSamples[i] = DAC_VALUE(dacSamples[i]);
@@ -50,7 +50,7 @@ void Tone_Init(uint8_t volume) {
     DAC_Init(LPC_DAC);
     Tone_Volume = volume;
 
-    Tone_GenerateSineWave();
+    // Tone_GenerateSineWave();
     Tone_DmaInit();
 }
 
@@ -61,6 +61,10 @@ void Tone_Play(uint32_t frequency) {
     dacConfig.CNT_ENA = SET; //	Auto Reload
     dacConfig.DMA_ENA = SET; // Use DMA in DAC
 
+    float r = 0.4f;
+    if (frequency <= NOTE_A4)
+        r = 1.0f;
+    Tone_GenerateSineWave((float)Tone_Volume * r);
     Tone_Stop();
     DAC_SetDMATimeOut(LPC_DAC, clockPerSample - 1);
     DAC_ConfigDAConverterControl(LPC_DAC, &dacConfig);

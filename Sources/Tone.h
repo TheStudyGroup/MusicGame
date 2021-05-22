@@ -2,7 +2,7 @@
 #define _Tone_h_
 
 #include "Utility.h"
-#include "Note.h"
+#include "../Resource/Note.h"
 
 void Tone_Init(uint8_t volume);
 void Tone_Play(uint32_t frequency);
