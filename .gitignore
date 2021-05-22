@@ -1,0 +1,9 @@
+Listing/
+Object/
+
+Reference/
+Library/
+
+*.uvgui.*
+*.zip
+
