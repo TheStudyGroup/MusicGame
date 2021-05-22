@@ -38,7 +38,7 @@ static void Tone_DmaInit(void) {
 
 static void Tone_GenerateSineWave(float volume) {
     uint32_t i;
-    float baseLevel = 256.0f * (float)volume / 100.0f;
+    float baseLevel = 512.0f * (float)volume / 100.0f;
     for (i = 0; i < TONE_SAMPLE_COUNT; i++) {
         dacSamples[i] = baseLevel + baseLevel * sinf((float)i * (2.0f * M_PI / TONE_SAMPLE_COUNT));
         dacSamples[i] = DAC_VALUE(dacSamples[i]);
@@ -61,9 +61,11 @@ void Tone_Play(uint32_t frequency) {
     dacConfig.CNT_ENA = SET; //	Auto Reload
     dacConfig.DMA_ENA = SET; // Use DMA in DAC
 
-    float r = 0.4f;
-    if (frequency <= NOTE_A4)
+    float r = 0.2f;
+    if (frequency <= NOTE_E4)
         r = 1.0f;
+    else if (frequency <= NOTE_A4)
+        r = 0.5f;
     Tone_GenerateSineWave((float)Tone_Volume * r);
     Tone_Stop();
     DAC_SetDMATimeOut(LPC_DAC, clockPerSample - 1);
@@ -84,14 +86,14 @@ bool Tone_IsPlaying(void) {
     return Tone_State;
 }
 
-void Tone_Test(void) {
-    Tone_Play(NOTE_C4); DelayMs(100); // 도
-    Tone_Play(NOTE_D4); DelayMs(100); // 레
-    Tone_Play(NOTE_E4); DelayMs(100); // 미
-    Tone_Play(NOTE_F4); DelayMs(100); // 파
-    Tone_Play(NOTE_G4); DelayMs(100); // 솔
-    Tone_Play(NOTE_A4); DelayMs(100); // 라
-    Tone_Play(NOTE_B4); DelayMs(100); // 시
-    Tone_Play(NOTE_C5); DelayMs(100); // 도
+void Tone_Test(uint32_t millis) {
+    Tone_Play(NOTE_C4); DelayMs(millis); // 도
+    Tone_Play(NOTE_D4); DelayMs(millis); // 레
+    Tone_Play(NOTE_E4); DelayMs(millis); // 미
+    Tone_Play(NOTE_F4); DelayMs(millis); // 파
+    Tone_Play(NOTE_G4); DelayMs(millis); // 솔
+    Tone_Play(NOTE_A4); DelayMs(millis); // 라
+    Tone_Play(NOTE_B4); DelayMs(millis); // 시
+    Tone_Play(NOTE_C5); DelayMs(millis); // 도
     Tone_Stop();
 }
