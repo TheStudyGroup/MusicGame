@@ -57,7 +57,7 @@ static void Keypad_UseRow1() {
     LPC_GPIO2->FIOPIN |= (1 << 12);
     LPC_GPIO2->FIOPIN |= (1 << 13);
     // CS Clock High Edge
-    LPC_GPIO2->FIOPIN |= (1 << 11); 
+    LPC_GPIO2->FIOPIN |= (1 << 11);
     LPC_GPIO2->FIOPIN &= ~(1 << 11);
 }
 static void Keypad_UseRow2() {
@@ -81,7 +81,7 @@ static void Keypad_UseRow3() {
     LPC_GPIO2->FIOPIN &= ~(1 << 12);
     LPC_GPIO2->FIOPIN |= (1 << 13);
     // CS Clock High Edge
-    LPC_GPIO2->FIOPIN |= (1 << 11); 
+    LPC_GPIO2->FIOPIN |= (1 << 11);
     LPC_GPIO2->FIOPIN &= ~(1 << 11);
 }
 static void Keypad_UseRow4() {
@@ -93,7 +93,7 @@ static void Keypad_UseRow4() {
     LPC_GPIO2->FIOPIN |= (1 << 12);
     LPC_GPIO2->FIOPIN &= ~(1 << 13);
     // CS Clock High Edge
-    LPC_GPIO2->FIOPIN |= (1 << 11); 
+    LPC_GPIO2->FIOPIN |= (1 << 11);
     LPC_GPIO2->FIOPIN &= ~(1 << 11);
 }
 static int Keypad_ScanColumn() {
@@ -123,6 +123,7 @@ void Keypad_Init(KeypadType type) {
 
 int Keypad_Scan() {
     int result = 0;
+
     switch (Keypad_Type) { // see arm_cortexm3_keypad_v11.pdf
         case KEYPAD_TYPE_A:
             EXT_IO_A_CS();
