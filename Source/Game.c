@@ -9,11 +9,11 @@ uint16_t* Game_GetNoteImage(uint16_t note) {
     if (note == NOTE_A4) return (uint16_t*)Image_ArrowUpGreen;
     if (note == NOTE_B4) return (uint16_t*)Image_ArrowRightRed;
     if (note == NOTE_C5) return (uint16_t*)Image_ArrowDownBlue;
-    return (uint16_t*)Image_ArrowDownBlue;
+    return (uint16_t*)Image_ArrowDownBlue; // TODO
 }
 
-uint16_t* Game_GetPlayerImage() {
-    return (uint16_t*)Image_ArrowDownBlue;
+uint16_t* Game_GetPlayerImage(void) {
+    return (uint16_t*)Image_PlayerWhite;
 }
 
 int Game_NoteToKeypad(uint16_t note) {

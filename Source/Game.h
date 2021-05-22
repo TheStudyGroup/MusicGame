@@ -12,7 +12,9 @@
 #define CHAR_MID   (0x80 + 1)
 
 
-uint16_t* Game_GetNoteImage(uint16_t note);
-int Game_NoteToKeypad(uint16_t note);
+uint16_t* Game_GetNoteImage  (uint16_t note);
+uint16_t* Game_GetPlayerImage(void);
+
+int       Game_NoteToKeypad  (uint16_t note);
 
 #endif
