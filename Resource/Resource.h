@@ -7,11 +7,14 @@
 
 extern const uint16_t ASCII_Table[];
 
-extern const uint16_t Image_ArrowLeftYellow [24][24];
-extern const uint16_t Image_ArrowRightRed   [24][24];
-extern const uint16_t Image_ArrowUpGreen    [24][24];
-extern const uint16_t Image_ArrowDownBlue   [24][24];
-extern const uint16_t Image_ArrowPlayerWhite[24][24];
+#define IMAGE_WIDTH  24
+#define IMAGE_HEIGHT 24
+
+extern const uint16_t Image_ArrowLeftYellow [IMAGE_HEIGHT][IMAGE_WIDTH];
+extern const uint16_t Image_ArrowRightRed   [IMAGE_HEIGHT][IMAGE_WIDTH];
+extern const uint16_t Image_ArrowUpGreen    [IMAGE_HEIGHT][IMAGE_WIDTH];
+extern const uint16_t Image_ArrowDownBlue   [IMAGE_HEIGHT][IMAGE_WIDTH];
+extern const uint16_t Image_PlayerWhite     [IMAGE_HEIGHT][IMAGE_WIDTH];
 
 
 #endif
