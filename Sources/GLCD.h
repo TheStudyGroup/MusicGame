@@ -45,5 +45,6 @@ void GLCD_DisplayChar    (uint16_t x, uint16_t y, uint8_t ascii);
 void GLCD_DisplayStringLn(uint16_t line, char* str);
 void GLCD_ClearLn        (uint16_t line);
 void GLCD_PutBitmap      (uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* bitmap);
+void GLCD_Printf         (uint16_t line, char* format, ...);
 
 #endif

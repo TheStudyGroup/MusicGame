@@ -260,6 +260,14 @@ void GLCD_ClearLn(uint16_t line) {
     GLCD_DisplayStringLn(line, "                    ");
 }
 
+void GLCD_Printf(uint16_t line, char* format, ...) {
+    va_list argList;
+    char    buffer[25];
+    va_start(argList, format);
+    vsprintf(buffer, format, argList);
+    GLCD_DisplayStringLn(line, buffer);
+    va_end(argList);
+}
 
 void GLCD_PutBitmap(uint16_t x, uint16_t y, uint16_t width, uint16_t height, const uint16_t* bitmap) {
     uint32_t i, length = width * height;
