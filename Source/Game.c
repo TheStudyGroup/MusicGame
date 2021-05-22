@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 uint16_t* Game_GetNoteImage(uint16_t note) {
     if (note == NOTE_C4) return (uint16_t*)Image_ArrowLeftYellow;
     if (note == NOTE_D4) return (uint16_t*)Image_ArrowUpGreen;

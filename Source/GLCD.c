@@ -14,7 +14,7 @@
 static volatile unsigned short TextColor = Black, BackColor = White;
 
 
-static void delay(int cnt) {
+static void delay(volatile int cnt) {
     cnt <<= DELAY_2N;
     while (cnt--);
 }
@@ -71,7 +71,7 @@ void GLCD_Init(void) {
     LPC_SSP1->CPSR       =  6;            /* Clock Rate = 6.25MHz               */
     LPC_SSP1->CR1        =  (   1 << 1);  /* Enable SSP1                        */
 
-    delay(5);                             /* Delay 50 ms                        */
+     delay(5);                             /* Delay 50 ms                        */
 
     //************* Start Initial Sequence **********//
     GLCD_WriteCmd(0xCF); // Power Control B
@@ -178,8 +178,8 @@ void GLCD_Init(void) {
 
     GLCD_WriteCmd(0x11); //Exit Sleep
 
-    delay(12);
-
+     delay(12);
+    
     GLCD_WriteCmd(0x29); //Display on
 
     LPC_GPIO4->FIOPIN |=  (1 << 28);    /* Turn backlight on */
