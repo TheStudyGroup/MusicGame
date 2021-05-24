@@ -6,6 +6,8 @@
 
 #include "Game.h"
 
+#include "stdbool.h"
+
 uint8_t led = 0;
 
 
@@ -25,8 +27,8 @@ int LS_XPOS[(LS_NOTE_PER_VERSE+1) * LS_VERSE_COUNT] = { // 각각음표 x좌표
     /* player */  20,  /* 1st verse */  70, 120, 170, 220, 270, 270, 270, 270, 220, 170, 120,  70,  20,  20,
     /* player */  20,  /* 2nd verse */  20,  20,  70, 120, 170, 220, 270, 270, 270, 270, 220, 170, 120,  70,
     /* player */  70,  /* 3rd verse */  20,  20,  20,  20,  70, 120, 170, 220, 270, 270, 270, 270, 220, 170,
-};
-int LS_YPOS[(LS_NOTE_PER_VERSE+1) * LS_VERSE_COUNT] = { // y좌표
+	};
+	int LS_YPOS[(LS_NOTE_PER_VERSE+1) * LS_VERSE_COUNT] = { // y좌표
     /* player */  45,  /* 1st verse */  45,  45,  45,  45,  45,  85, 125, 165, 165, 165, 165, 165, 165, 125,
     /* player */ 125,  /* 2nd verse */  85,  45,  45,  45,  45,  45,  45,  85, 125, 165, 165, 165, 165, 165,
     /* player */ 165,  /* 3rd verse */ 165, 125,  85,  45,  45,  45,  45,  45,  45,  85, 125, 165, 165, 165,
@@ -72,7 +74,8 @@ int BELL_YPOS[(BELL_NOTE_PER_VERSE+1) * BELL_VERSE_COUNT] = { // y좌표
 
 
 
-int gameLevel, gameScore;
+int gameLevel=1, gameScore, time;
+bool succes[4] = {false};
 void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verseCount);
 void Keypad_Test(void);
 
@@ -83,8 +86,7 @@ int main(void) {
     Keypad_Init(KEYPAD_TYPE_C);
     Tone_Init(50); // volume
     GLCD_Init();
-    Timer0_Init(100); // timer 100ms
-    Timer0_Start();
+    Timer0_Init(1000);
 
     GLCD_Clear(Black);
     GLCD_SetBackColor(Black);
@@ -96,14 +98,29 @@ int main(void) {
     // Tone_Test(100);
     DelayMs(500);
 
-
-    startGame((uint16_t*)LS_NOTE, (int*)LS_XPOS, (int*)LS_YPOS, LS_NOTE_PER_VERSE, LS_VERSE_COUNT);
-    while(1);
+		
+		startGame((uint16_t*)LS_NOTE, (int*)LS_XPOS, (int*)LS_YPOS, LS_NOTE_PER_VERSE, LS_VERSE_COUNT ,gameLevel);
+	
+		if(success[0]){
+			gameLevel=2;
+			startGame((uint16_t*)APPLE_NOTE, (int*)APPLE_XPOS, (int*)APPLE_YPOS, APPLE_NOTE_PER_VERSE, APPLE_VERSE_COUNT,gameLevel);
+			success[0]=false;
+		}
+		else if(success[1]){
+			gameLevel=3;
+			startGame((uint16_t*)BELL_NOTE, (int*)BELL_XPOS, (int*)BELL_YPOS, BELL_NOTE_PER_VERSE, BEEL_VERSE_COUNT,gameLevel);
+			success[1]=false;
+		}
+		else if(succes[2]){ //level4
+			gameLevel=4;
+			//startGame((uint16_t*)APPLE_NOTE, (int*)APPLE_XPOS, (int*)APPLE_YPOS, APPLE_NOTE_PER_VERSE, APPLE_VERSE_COUNT,gameLevel); 
+			success[2]=false;
+		}
 }
 
-void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verseCount) {
+void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verseCount, int level) {
     int i, j, currVerse = 0, keyState, playerX, playerY;
-    gameLevel = 1;
+		int gLevel = level;
     gameScore = 100;
 
     while (currVerse != verseCount) {
@@ -121,8 +138,30 @@ void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verse
         }
 
         for (i = 1; i <= notePerVerse; i++) {
-            GLCD_Printf(Line0, "LEVEL:%d / SCORE:%-4d", gameLevel, gameScore);
-            GLCD_DisplayStringLn(Line9, "TIME:|||||||| ");
+            GLCD_Printf(Line0, "LEVEL:%d / SCORE:%-4d", gLevel, gameScore);
+            GLCD_DisplayStringLn(Line9, "TIME: ");
+						
+						if(i==1){ //게임이 시작되면 timer 시작.
+							Timer0_Start();
+							switch(gLevel){
+								case 1 :
+									time = 40;
+									GLCD_DisplayStringLn(Line9, "       %d", time);
+									break;
+								case 2 :
+									time = 30;
+									GLCD_DisplayStringLn(Line9, "       %d", time);
+									break;
+								case 3 :
+									time = 25;
+									GLCD_DisplayStringLn(Line9, "       %d", time);
+									break;
+								case 4 :
+									time = 20;
+									GLCD_DisplayStringLn(Line9, "       %d", time);
+									break;
+							}
+						}
 
             j = currVerse * (notePerVerse + 1) + i;
             keyState = KEYPAD_NOKEY;
@@ -146,18 +185,30 @@ void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verse
                 DelayMs(50);
             }
             Tone_Stop();
+						
+						if(i==notePerVerse && (j+1)==verseCount){
+							if(time >= 0){
+								success[gLevel-1] = true;
+								GLCD_Clear(Black);
+								GLCD_DisplayStringLn(Line5, "     GAME CLEAR    ");
+								Delay(2000);
+							}
+							else{
+								success[gLevel-1] = false;
+								GLCD_Clear(Black);
+								GLCD_DisplayStringLn(Line5, "     GAME  OVER    ");
+								Delay(2000);
+							}
+						}
         }
         currVerse ++;
     }
 }
 
-// 타이머는 0.1초간격 -> 위쪽에 남은시간 표시 TODO
+// 타이머는 1초간격 -> 위쪽에 남은시간 표시 TODO
 void TIMER0_IRQHandler(void) { // 100ms
     TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT);
-
-    //LED_OffAll();
-    LED_On(led + 1); // 1-based
-    led = (led + 1) % 8;
+		time--;
 }
 
 void Keypad_Test(void) {
