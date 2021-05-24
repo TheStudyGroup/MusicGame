@@ -95,6 +95,18 @@ int Tone_IsPlaying(void) {
     return Tone_State;
 }
 
+void Tone_Test(uint32_t millis) {
+    Tone_Play(NOTE_C4); DelayMs(millis); // 도
+    Tone_Play(NOTE_D4); DelayMs(millis); // 레
+    Tone_Play(NOTE_E4); DelayMs(millis); // 미
+    Tone_Play(NOTE_F4); DelayMs(millis); // 파
+    Tone_Play(NOTE_G4); DelayMs(millis); // 솔
+    Tone_Play(NOTE_A4); DelayMs(millis); // 라
+    Tone_Play(NOTE_B4); DelayMs(millis); // 시
+    Tone_Play(NOTE_C5); DelayMs(millis); // 도
+    Tone_Stop();
+}
+
 #pragma O0
 void Tone_Delay(volatile uint32_t millis) {
     millis = SystemCoreClock / 4000 * millis;
