@@ -33,6 +33,44 @@ int LS_YPOS[(LS_NOTE_PER_VERSE+1) * LS_VERSE_COUNT] = { // y좌표
 };
 // 박자표는 TODO...
 
+// 사과같은 내 얼굴(apple)
+// 도레 미미 파미레 레미파파 솔파미
+// 미파솔솔 도라솔솔 도레미미레도
+
+#define APPLE_NOTE_PER_VERSE 14        // 절 하나에 음표 14개
+#define APPLE_VERSE_COUNT 2         // 2절까지 있음 
+uint16_t APPLE_NOTE[(APPLE_NOTE_PER_VERSE+1) * APPLE_VERSE_COUNT] = {
+    0, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_F4, NOTE_E4, NOTE_D4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_F4, NOTE_G4, NOTE_F4, NOTE_E4,
+    0, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_G4, NOTE_C5, NOTE_A4, NOTE_G4, NOTE_G4, NOTE_C4, NOTE_D4, NOTE_E4, NOTE_E4, NOTE_D4, NOTE_C4
+};
+int APPLE_XPOS[(APPLE_NOTE_PER_VERSE+1) * APPLE_VERSE_COUNT] = { // 각각음표 x좌표
+     20,       70, 120, 170, 220, 270, 270, 270, 270, 220, 170, 120,  70,  20,  20,
+     20,       20,  20,  70, 120, 170, 220, 270, 270, 270, 270, 220, 170, 120,  70,
+};
+int APPLE_YPOS[(APPLE_NOTE_PER_VERSE+1) * APPLE_VERSE_COUNT] = { // y좌표
+     45,       45,  45,  45,  45,  45,  85, 125, 165, 165, 165, 165, 165, 165, 125,
+     125,      85,  45,  45,  45,  45,  45,  45,  85, 125, 165, 165, 165, 165, 165,
+};
+
+//학교종이 땡땡땡(BELL)
+//솔솔라라 솔솔미 솔솔미미레
+//솔솔라랄 솔솔미 솔미레미도
+#define BELL_NOTE_PER_VERSE 12        // 절 하나에 음표 12개
+#define BELL_VERSE_COUNT 2         // 2절까지 있음 
+uint16_t BELL_NOTE[(BELL_NOTE_PER_VERSE+1) * BELL_VERSE_COUNT] = {
+    0, NOTE_G4, NOTE_G4, NOTE_A4, NOTE_A4, NOTE_G4, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_G4, NOTE_E4, NOTE_E4, NOTE_D4,
+    0, NOTE_G4, NOTE_G4, NOTE_A4, NOTE_A4, NOTE_G4, NOTE_G4, NOTE_E4, NOTE_G4, NOTE_E4, NOTE_D4, NOTE_E4,  NOTE_C4,
+};
+int BELL_XPOS[(BELL_NOTE_PER_VERSE+1) * BELL_VERSE_COUNT] = { // 각각음표 x좌표
+    20,     70, 120, 170, 220, 270, 270, 270, 270, 220, 170, 120, 70,
+	  70,     20,  20,  20,  20,  70, 120, 170, 220, 270, 270, 270, 270,  
+};
+int BELL_YPOS[(BELL_NOTE_PER_VERSE+1) * BELL_VERSE_COUNT] = { // y좌표
+    45,      45,  45, 45, 45, 45, 85, 125, 165, 165, 165, 165, 165,
+    165,    165, 125, 85, 45, 45, 45,  45,  45,  45,  85, 125, 165, 
+};
+
+
 
 int gameLevel, gameScore;
 void startGame(uint16_t* note, int* xpos, int* ypos, int notePerVerse, int verseCount);
