@@ -52,6 +52,7 @@ void Tone_Init(uint8_t volume) {
 
     // Tone_GenerateSineWave();
     Tone_DmaInit();
+	GPDMA_ChannelCmd(0, ENABLE);
 }
 
 void Tone_Play(uint32_t frequency) {
@@ -71,13 +72,16 @@ void Tone_Play(uint32_t frequency) {
     DAC_SetDMATimeOut(LPC_DAC, clockPerSample - 1);
     DAC_ConfigDAConverterControl(LPC_DAC, &dacConfig);
 
-    GPDMA_ChannelCmd(0, ENABLE);
+    
     Tone_State = TRUE;
 }
 
 void Tone_Stop(void) {
     if (Tone_State) {
-        GPDMA_ChannelCmd(0, DISABLE);
+            DAC_CONVERTER_CFG_Type dacConfig;
+    dacConfig.CNT_ENA = RESET; //	Auto Reload
+    dacConfig.DMA_ENA = RESET; // Use DMA in DAC
+			DAC_ConfigDAConverterControl(LPC_DAC, &dacConfig);
     }
     Tone_State = false;
 }

@@ -232,7 +232,7 @@ void GLCD_ClearRect(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uin
 }
 
 void GLCD_ClearLine(uint16_t line) {
-    GLCD_ClearRect(0, line, GLCD_WIDTH, line + GLCD_LINE_HEIGHT, TextColor);
+    GLCD_ClearRect(0, line, GLCD_WIDTH, GLCD_LINE_HEIGHT, BackColor);
 
 }
 /**********************************************************************/

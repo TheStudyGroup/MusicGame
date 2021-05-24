@@ -568,6 +568,11 @@
               <FilePath>.\Resource\Resource.h</FilePath>
             </File>
             <File>
+              <FileName>Level.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Resource\Level.c</FilePath>
+            </File>
+            <File>
               <FileName>Font.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Resource\Font.c</FilePath>

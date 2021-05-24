@@ -16,5 +16,16 @@ extern const uint16_t Image_ArrowUpGreen    [IMAGE_HEIGHT][IMAGE_WIDTH];
 extern const uint16_t Image_ArrowDownBlue   [IMAGE_HEIGHT][IMAGE_WIDTH];
 extern const uint16_t Image_PlayerWhite     [IMAGE_HEIGHT][IMAGE_WIDTH];
 
+typedef struct {
+    char      name[20];
+    int       time;
+    int       notePerVerse;
+    int       verseCount;
+    uint16_t* notes;
+    int*      xpos;
+    int*      ypos;
+} GameLevel;
+
+extern const GameLevel gameLevels[];
 
 #endif
