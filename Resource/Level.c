@@ -15,16 +15,16 @@ uint16_t BUTTER_NOTE[(BUTTER_NPV+1) * BUTTER_VC] = {
     0, NOTE_G4, NOTE_E4, NOTE_E4, NOTE_E4, NOTE_F4, NOTE_D4, NOTE_D4, NOTE_C4, NOTE_E4, NOTE_G4, NOTE_G4, NOTE_E4, NOTE_E4, NOTE_E4,
 };
 int BUTTER_XPOS[(BUTTER_NPV+1) * BUTTER_VC] = {
-    /* player */ 20,  /* 1st verse */   70, 120, 170, 220, 270, 270, 270, 220, 170, 120,  70,  20,  20,  70,
+    /* player */ 20,  /* 1st verse */   70, 120, 170, 220, 270, 270, 270, 220, 170, 120,  70,  70,  20,  20,
     /* player */ 70,  /* 2nd verse */  120, 170, 220, 270, 270, 270, 270, 220, 170, 170, 120,  70,  20,  20,
     /* player */ 20,  /* 3rd verse */   20,  70, 120, 120, 120, 120, 170, 220, 270, 270, 270, 220, 220, 170,
     /* player */ 170,  /* 3rd verse */ 120,  70,  20,  20,  20,  20,  70, 120, 170, 170, 220, 270, 270, 270,
 };
 int BUTTER_YPOS[(BUTTER_NPV+1) * BUTTER_VC] = { // y축
-    /* player */  45,  /* 1st verse */  45,  45,  45, 45, 45, 85, 125, 125, 125, 125, 125, 165, 165,
-    /* player */ 165,  /* 2nd verse */ 165, 165, 165, 165, 125, 85, 45, 45, 45, 85,  85,  85,  85, 125,
-    /* player */ 125,  /* 3rd verse */ 165, 165, 165, 125,  85, 45, 45, 45, 45, 85, 125, 125, 165, 165,
-    /* player */ 165,  /* 3rd verse */ 165, 165, 165, 125,  85, 45, 45, 45, 45, 85,  85,  85, 125, 165,
+    /* player */  45,  /* 1st verse */  45,  45,  45,  45,  45, 85, 125, 125, 125, 125, 125, 165, 165, 125,
+    /* player */ 165,  /* 2nd verse */ 165, 165, 165, 165, 125, 85,  45,  45,  45,  85,  85,  85,  85, 125,
+    /* player */ 125,  /* 3rd verse */ 165, 165, 165, 125,  85, 45,  45,  45,  45,  85, 125, 125, 165, 165,
+    /* player */ 165,  /* 3rd verse */ 165, 165, 165, 125,  85, 45,  45,  45,  45,  85,  85,  85, 125, 165,
 };
 
 // 작은별 (Star)
@@ -91,5 +91,5 @@ const GameLevel gameLevels[] = {
     { "Little Star", 200, STAR_NPV,   STAR_VC,   STAR_NOTE,   STAR_XPOS,   STAR_YPOS   },
     { "Apple Face",  150, APPLE_NPV,  APPLE_VC,  APPLE_NOTE,  APPLE_XPOS,  APPLE_YPOS  },
     { "School Bell", 150, BELL_NPV,   BELL_VC,   BELL_NOTE,   BELL_XPOS,   BELL_YPOS   },
-    { "Butterfly",   500, BUTTER_NPV, BUTTER_VC, BUTTER_NOTE, BUTTER_XPOS, BUTTER_YPOS },
+    { "Butterfly",   300, BUTTER_NPV, BUTTER_VC, BUTTER_NOTE, BUTTER_XPOS, BUTTER_YPOS },
 };

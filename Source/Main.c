@@ -18,7 +18,7 @@ int main(void) {
     SystemInit();
     LED_Init();
     Keypad_Init(KEYPAD_TYPE_C);
-    Tone_Init(50); // volume
+    Tone_Init(70); // volume
     GLCD_Init();
     Timer0_Init(100);
     Timer0_Start();
@@ -42,7 +42,7 @@ void startGame(void) {
     int i, totalScore = 0;
     gameLevel = 1;
 
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 4; i++) {
         gameScore = 10;
         bool result = startLevel(&gameLevels[i]);
 
@@ -67,7 +67,7 @@ void startGame(void) {
         totalScore += gameScore;
     }
 
-    if (i == 3) {
+    if (i == 4) {
         GLCD_ClearLine(Line5);
         GLCD_Printf(Line3, "   ALL CLEAR !!!   ");
         GLCD_Printf(Line4, " Total Score: %d", totalScore);
