@@ -543,16 +543,6 @@
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>Game.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Source\Game.c</FilePath>
-            </File>
-            <File>
-              <FileName>Game.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Source\Game.h</FilePath>
-            </File>
-            <File>
               <FileName>Main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\Main.c</FilePath>
@@ -562,6 +552,11 @@
         <Group>
           <GroupName>Resource</GroupName>
           <Files>
+            <File>
+              <FileName>Resource.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Resource\Resource.c</FilePath>
+            </File>
             <File>
               <FileName>Resource.h</FileName>
               <FileType>5</FileType>

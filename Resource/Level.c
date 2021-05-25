@@ -27,7 +27,7 @@ int BUTTER_YPOS[(BUTTER_NPV+1) * BUTTER_VC] = { // y축
     /* player */ 165,  /* 3rd verse */ 165, 165, 165, 125,  85, 45, 45, 45, 45, 85,  85,  85, 125, 165,
 };
 
-// 작은별(Star)
+// 작은별 (Star)
 // 도도솔솔 라라 솔 파파미미 레레도
 // 솔솔 파파미미레 솔솔 파파미미레
 // 도도솔솔 라라 솔 파파미미 레레도
@@ -50,7 +50,7 @@ int STAR_YPOS[(STAR_NPV+1) * STAR_VC] = {
 };
 
 
-// 사과같은 내 얼굴 (apple)
+// 사과같은 내 얼굴 (Apple)
 // 도레 미미 파미레 레미파파 솔파미
 // 미파솔솔 도라솔솔 도레미미레도
 #define APPLE_NPV 14     // 절 하나에 음표 14개
@@ -68,7 +68,7 @@ int APPLE_YPOS[(APPLE_NPV+1) * APPLE_VC] = {
      125,      85,  45,  45,  45,  45,  45,  45,  85, 125, 165, 165, 165, 165, 165,
 };
 
-// 학교종이 땡땡땡(BELL)
+// 학교종이 땡땡땡 (Bell)
 // 솔솔라라 솔솔미 솔솔미미레
 // 솔솔라랄 솔솔미 솔미레미도
 #define BELL_NPV 12     // 절 하나에 음표 12개
@@ -88,8 +88,8 @@ int BELL_YPOS[(BELL_NPV+1) * BELL_VC] = {
 
 
 const GameLevel gameLevels[] = {
-    // { "Butterfly",   500, BUTTER_NPV, BUTTER_VC, BUTTER_NOTE, BUTTER_XPOS, BUTTER_YPOS },
     { "Little Star", 200, STAR_NPV,   STAR_VC,   STAR_NOTE,   STAR_XPOS,   STAR_YPOS   },
     { "Apple Face",  150, APPLE_NPV,  APPLE_VC,  APPLE_NOTE,  APPLE_XPOS,  APPLE_YPOS  },
     { "School Bell", 150, BELL_NPV,   BELL_VC,   BELL_NOTE,   BELL_XPOS,   BELL_YPOS   },
+    { "Butterfly",   500, BUTTER_NPV, BUTTER_VC, BUTTER_NOTE, BUTTER_XPOS, BUTTER_YPOS },
 };

@@ -1,6 +1,7 @@
-#include "Game.h"
+#include "Resource.h"
+#include "../Source/Keypad.h"
 
-uint16_t* Game_GetNoteImage(uint16_t note) {
+uint16_t* Res_GetNoteImage(uint16_t note) {
     if (note == NOTE_C4) return (uint16_t*)Image_ArrowLeftYellow;
     if (note == NOTE_D4) return (uint16_t*)Image_ArrowUpGreen;
     if (note == NOTE_E4) return (uint16_t*)Image_ArrowRightRed;
@@ -12,11 +13,11 @@ uint16_t* Game_GetNoteImage(uint16_t note) {
     return (uint16_t*)Image_ArrowDownBlue; // TODO
 }
 
-uint16_t* Game_GetPlayerImage(void) {
+uint16_t* Res_GetPlayerImage(void) {
     return (uint16_t*)Image_PlayerWhite;
 }
 
-int Game_NoteToKeypad(uint16_t note) {
+int Res_NoteToKeypad(uint16_t note) {
     if (note == NOTE_C4) return KEYPAD_LEFT;
     if (note == NOTE_D4) return KEYPAD_UP;
     if (note == NOTE_E4) return KEYPAD_RIGHT;

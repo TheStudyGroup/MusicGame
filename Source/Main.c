@@ -1,4 +1,9 @@
-#include "Game.h"
+#include "GLCD.h"
+#include "Tone.h"
+#include "Timer.h"
+#include "Keypad.h"
+#include "Utility.h"
+#include "../Resource/Resource.h"
 
 uint8_t led = 0;
 
@@ -100,11 +105,11 @@ bool startLevel(const GameLevel* level) {
         j = currVerse * (level->notePerVerse + 1);
         playerX = level->xpos[j];
         playerY = level->ypos[j];
-        GLCD_DrawBitmap(playerX, playerY, IMAGE_HEIGHT, IMAGE_WIDTH, Game_GetPlayerImage());
+        GLCD_DrawBitmap(playerX, playerY, IMAGE_HEIGHT, IMAGE_WIDTH, Res_GetPlayerImage());
 
         for (i = 1; i <= level->notePerVerse; i++) { // Draw notes
             j = currVerse * (level->notePerVerse + 1) + i;
-            GLCD_DrawBitmap(level->xpos[j], level->ypos[j], IMAGE_HEIGHT, IMAGE_WIDTH, Game_GetNoteImage(level->notes[j]));
+            GLCD_DrawBitmap(level->xpos[j], level->ypos[j], IMAGE_HEIGHT, IMAGE_WIDTH, Res_GetNoteImage(level->notes[j]));
         }
 
         for (i = 1; i <= level->notePerVerse; i++) {
@@ -126,9 +131,9 @@ bool startLevel(const GameLevel* level) {
             GLCD_ClearRect(playerX, playerY, IMAGE_HEIGHT, IMAGE_WIDTH, Black);
             playerX = level->xpos[j];
             playerY = level->ypos[j];
-            GLCD_DrawBitmap(playerX, playerY, IMAGE_HEIGHT, IMAGE_WIDTH, Game_GetPlayerImage());
+            GLCD_DrawBitmap(playerX, playerY, IMAGE_HEIGHT, IMAGE_WIDTH, Res_GetPlayerImage());
                 
-            if (keyState == Game_NoteToKeypad(level->notes[j])) { // OK
+            if (keyState == Res_NoteToKeypad(level->notes[j])) { // OK
                 gameScore += 1;
                 Tone_Play(level->notes[j]);
                 DelayMs(100);

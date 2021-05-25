@@ -28,4 +28,9 @@ typedef struct {
 
 extern const GameLevel gameLevels[];
 
+
+uint16_t* Res_GetNoteImage  (uint16_t note);
+uint16_t* Res_GetPlayerImage(void);
+int       Res_NoteToKeypad  (uint16_t note);
+
 #endif
