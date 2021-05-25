@@ -142,6 +142,9 @@ bool startLevel(const GameLevel* level) {
                 Tone_Play(NOTE_F6);
                 DelayMs(100);
                 if (gameScore <= 0) {
+                    gameScore = 0;
+                    GLCD_Printf(Line0, "LEVEL:%d / SCORE:%-4d", gameLevel, gameScore);
+                    GLCD_Printf(Line9, "TIME:%-3d", gameTime / 10);
                     return false;
                 }
             }
